@@ -13,7 +13,7 @@ public class Bike {
     private Integer id;
     private String name;
     private String brand;
-    private Integer year; // numero entero de 4 digitos
+    private Integer year; //int number of 4 digits
     private String description;
 
     @ManyToOne
@@ -23,7 +23,74 @@ public class Bike {
 
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "bike")
-    @JsonIgnoreProperties({"clouds", "messages"})
+    @JsonIgnoreProperties({"bike", "messages"})
     public List<Reservation> reservations;
 
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "bike")
+    @JsonIgnoreProperties({"bike", "client"})
+    public List<Message> messages;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
 }

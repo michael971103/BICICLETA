@@ -9,9 +9,9 @@ import javax.persistence.*;
 @Table(name = "Score")
 public class Score {
 
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idScore;
     private String messageText;
     private Integer score;
 
@@ -19,12 +19,13 @@ public class Score {
     @JsonIgnoreProperties("score")
     private Reservation reservation;
 
-    public Integer getId() {
-        return id;
+
+    public Integer getIdScore() {
+        return idScore;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdScore(Integer idScore) {
+        this.idScore = idScore;
     }
 
     public String getMessageText() {
